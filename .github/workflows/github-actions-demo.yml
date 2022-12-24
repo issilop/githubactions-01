@@ -21,4 +21,6 @@ jobs:
           node-version: '16'
       - run: npm install -g bats
       - run: bats -v        
+      - run: echo "Executing the index.js file"
+      - run: node index.js
       - run: echo "🍏 This job's status is ${{ job.status }}."
