@@ -28,7 +28,7 @@ jobs:
         run: ./.github/scripts/example.sh
         shell: bash
       - name: Save output
-      - shell: bash
+        shell: bash
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
