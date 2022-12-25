@@ -1,8 +1,9 @@
 name: GitHub Actions Demo 2
 run-name: ${{ github.actor }} is testing out GitHub actions 🚀
-on: [push]
-  branches:
-    - 'branch-2'
+on:
+  push:
+    branches:
+      - 'branch-2'
 jobs:
   name: Testing-Share-Data-Between-Jobs
   steps:
