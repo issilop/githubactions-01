@@ -1,6 +1,9 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub actions 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   Explore-GitHub-Actions:
     name: "This is the name of job"
@@ -25,24 +28,8 @@ jobs:
       - run: echo "Executing the index.js file"
       - run: node index.js
       - name: Run a shell script
+        shell: bash
         run: ./.github/scripts/example.sh
-        shell: bash
-      - name: Save output
-        shell: bash
-        run: |
-          expr 1 + 1 > output.log
-      - name: Upload output file
-        uses: actions/upload-artifact@v3
-        with:
-          name: output-log-file
-          path: output.log
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: output-log-file
-        - shell: bash
-        - run: echo "Now we are show the content of the output.log ⬇️"
-        - run: cat output.log    
         # For the moment not is necesary check the CO2
       # - name: Check CO2 CI
       #   uses: GeopJr/CO2@v1  
