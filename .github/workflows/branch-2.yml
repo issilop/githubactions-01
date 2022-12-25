@@ -1,0 +1,17 @@
+name: GitHub Actions Demo 2
+run-name: ${{ github.actor }} is testing out GitHub actions 🚀
+on: [push]
+  branches:
+    - 'branch-2'
+jobs:
+  name: Testing-Share-Data-Between-Jobs
+  steps:
+    - run: echo "Starting the job ..."
+    - shell: bash
+      run: |
+        expr 1 + 1 > output.log
+    - name: Upload output file
+      uses: actions/upload-artifact@v3
+      with:
+        name: output-log-file
+        path: output.log
