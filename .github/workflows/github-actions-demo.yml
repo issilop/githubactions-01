@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
+    name: "This is the name of job"
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -26,9 +27,26 @@ jobs:
       - name: Run a shell script
         run: ./.github/scripts/example.sh
         shell: bash
-      - name: Check CO2 CI
-        uses: GeopJr/CO2@v1  
+      - name: Save output
+      - shell: bash
+        run: |
+        expr 1 + 1 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifacts@v3
         with:
-          url: "https://geopjr.dev/"
-          renewable: true
+          name: output-log-file
+          path: output.log
+      - name: Download a single artifact
+        uses: actions/download-artifacts@v3
+        with:
+          name: output-log-file
+        - shell: bash
+        - run: echo "Now we are show the content of the output.log ⬇️"
+        - run: cat output.log    
+        # For the moment not is necesary check the CO2
+      # - name: Check CO2 CI
+      #   uses: GeopJr/CO2@v1  
+        # with:
+          # url: "https://geopjr.dev/"
+          # renewable: true
       - run: echo "🍏 This job's status is ${{ job.status }}."
