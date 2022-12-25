@@ -30,6 +30,10 @@ jobs:
       - name: Run a shell script
         shell: bash
         run: ./.github/scripts/example.sh
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: output-log-file 
         # For the moment not is necesary check the CO2
       # - name: Check CO2 CI
       #   uses: GeopJr/CO2@v1  
