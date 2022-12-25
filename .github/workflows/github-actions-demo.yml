@@ -24,7 +24,7 @@ jobs:
       - run: echo "Executing the index.js file"
       - run: node index.js
       - name: Run a shell script
-        run: ./.github/scripts/build.sh
+        run: ./.github/scripts/example.sh
         shell: bash
       - name: Check CO2 CI
         uses: GeopJr/CO2@v1  
