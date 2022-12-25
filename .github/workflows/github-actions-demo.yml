@@ -24,9 +24,7 @@ jobs:
       - run: echo "Executing the index.js file"
       - run: node index.js
       - name: Check CO2 CI
-        uses: GeoJr/CO2@v1
-      - run: ./.github/scripts/example.sh
-        shell: bash  
+        uses: GeoJr/CO2@v1  
         with:
           url: "https://geopjr.dev/"
           renewable: true
