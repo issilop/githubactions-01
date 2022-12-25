@@ -30,6 +30,15 @@ jobs:
       - name: Run a shell script
         shell: bash
         run: ./.github/scripts/example.sh
+      - name: Save output
+        shell: bash
+        run: |
+          expr 1 + 6 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-log-file
+          path: output.log
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
