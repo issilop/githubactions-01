@@ -23,4 +23,11 @@ jobs:
       - run: bats -v        
       - run: echo "Executing the index.js file"
       - run: node index.js
+      - name: Check CO2 CI
+        uses: GeoJr/CO2@v1
+      - run: ./.github/scripts/example.sh
+        shell: bash  
+        with:
+          url: "https://geopjr.dev/"
+          renewable: true
       - run: echo "🍏 This job's status is ${{ job.status }}."
