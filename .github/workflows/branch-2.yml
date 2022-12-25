@@ -5,14 +5,15 @@ on:
     branches:
       - 'branch-2'
 jobs:
-  name: Testing-Share-Data-Between-Jobs
-  steps:
-    - run: echo "Starting the job ..."
-    - shell: bash
-      run: |
-        expr 1 + 1 > output.log
-    - name: Upload output file
-      uses: actions/upload-artifact@v3
-      with:
-        name: output-log-file
-        path: output.log
+  Testing-Share-Data-Between-Jobs:
+  name: Save Output
+    steps:
+      - run: echo "Starting the job ..."
+      - shell: bash
+        run: |
+          expr 1 + 1 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-log-file
+          path: output.log
